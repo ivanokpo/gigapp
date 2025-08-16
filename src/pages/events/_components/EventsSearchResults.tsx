@@ -1,6 +1,6 @@
-import React from 'react'
+
 import type { EventType } from '../../../types/EventType'
-import { Box, Grid, Paper, Stack, styled } from '@mui/material';
+import { Box } from '@mui/material';
 import { EventSearchResultItem } from './EventSearchResultItem';
 
 type EventsSearchResultsProps = {
@@ -17,7 +17,11 @@ export const EventsSearchResults = (props: EventsSearchResultsProps) => {
     <>
     <Box sx={{padding: 5}}>
         {data?._embedded?.events?.map(event => {
-            return <EventSearchResultItem data={event}/>
+            return (
+            <Box padding={2}>
+                <EventSearchResultItem data={event}/>
+                </Box>
+            )
         })}
         </Box>
     </>

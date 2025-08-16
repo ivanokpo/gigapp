@@ -1,8 +1,6 @@
-import { Box, Divider, IconButton, InputBase, Paper, TextField } from '@mui/material'
-import React, { useState } from 'react';
-import { Form, useNavigate } from 'react-router-dom';
+import { Box, IconButton, InputBase, Paper } from '@mui/material'
+import React from 'react';
 import { SearchOutlined } from "@mui/icons-material";
-import type { QueryObserverResult, RefetchOptions } from '@tanstack/react-query';
 
 
 type SearchbarProps = {

@@ -17,6 +17,7 @@ export const Navbar = () => {
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+    
   };
 
   const handleCloseUserMenu = () => {

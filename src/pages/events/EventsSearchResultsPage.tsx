@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react'
-import { data, useLocation } from 'react-router-dom';
+import {  useLocation } from 'react-router-dom';
 import { EventService } from '../../services/events';
 import { Searchbar } from '../../components/Searchbar';
-import { Box, Toolbar } from '@mui/material';
+import { Box } from '@mui/material';
 import { EventsSearchResults } from './_components/EventsSearchResults';
 
 export type locationSearchStateType = {
@@ -11,12 +11,11 @@ export type locationSearchStateType = {
 }
 export const EventsSearchResultsPage = () => {
     const location = useLocation();
-    //console.log(location.state);
     const searchState = location.state as locationSearchStateType; 
     
     const [searchPageQuery, setSearchPageQuery] = useState(searchState.searchQuery);
 
-const { data, isLoading, error, refetch, isFetched } = useQuery({
+const { data, refetch } = useQuery({
   queryKey:[ "events"],
   queryFn: () => EventService.getEventsQuery(searchPageQuery),
 //  enabled: false
@@ -35,8 +34,7 @@ console.log(data)
     <>
     <Box>
         <Searchbar searchEntity={'events'} setSearchQuery={setSearchPageQuery} onSearch={searchEvents}/>
-   
-    <EventsSearchResults data={data}/>
+        <EventsSearchResults data={data}/>
     </Box>
     </>
     

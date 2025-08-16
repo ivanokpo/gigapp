@@ -10,7 +10,7 @@ _embedded?: {
         id: string;
       name: string;
       dates?: {start: {localDate: string}}
-      url?: string;
+      url: string;
       type: string;
       images?: {
         height: number;
