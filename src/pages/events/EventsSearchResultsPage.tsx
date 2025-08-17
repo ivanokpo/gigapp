@@ -54,13 +54,13 @@ const searchEvents = () => {
       </Box>
       
         {(showSkeleton) &&
-       <Box sx={{pt: 6, height: '100vh',}}>{(Array.from({ length: 5 }).map((_, index) => ( 
+       <Box sx={{pt: 6, height: '100vh',mr: '12%'}}>{(Array.from({ length: 5 }).map((_, index) => ( 
           <Skeleton
             key={index}
             variant="rectangular"
-            width="100vw"
+            width="100%"
             height='10%'
-            style={{ padding: '7%', paddingTop: 10,marginTop: 10, marginBottom:30, color: 'red'}}
+            style={{ padding: '8%', paddingTop: 10,marginTop: 10, marginBottom:'1rem'}}
           />
         ))
         )}
