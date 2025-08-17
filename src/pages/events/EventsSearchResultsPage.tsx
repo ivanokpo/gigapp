@@ -1,6 +1,6 @@
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
-import React, { useEffect, useState } from 'react'
-import {  useLocation, useNavigate, useNavigationType } from 'react-router-dom';
+import React, {  useState } from 'react'
+import {  useLocation, useNavigate } from 'react-router-dom';
 import { EventService } from '../../services/events';
 import { Searchbar } from '../../components/Searchbar';
 import { Box, Skeleton, Typography } from '@mui/material';
@@ -11,7 +11,7 @@ export type locationSearchStateType = {
 }
 export const EventsSearchResultsPage = () => {
     const location = useLocation();
-    const searchState = location.state as locationSearchStateType; 
+    //const searchState = location.state as locationSearchStateType; 
     const navigate = useNavigate();
     const params = new URLSearchParams(location.search);
     const query = params.get("query") || "";
@@ -19,7 +19,7 @@ export const EventsSearchResultsPage = () => {
 
     
 
-const { data, refetch, isLoading, isFetching, isPending, isRefetching, isSuccess, error} = useQuery({
+const { data, refetch, isLoading, isFetching, isRefetching, error} = useQuery({
   queryKey:[ "events", query],
   queryFn: () => EventService.getEventsQuery(query),
   staleTime: 1000 * 10 * 1, 
@@ -61,7 +61,7 @@ const searchEvents = () => {
             variant="rectangular"
             width="100vw"
             height='10%'
-            style={{ padding: '50px', paddingTop: 10,  marginTop: 10, color: 'red'}}
+            style={{ padding: '7%', paddingTop: 10,marginTop: 10, marginBottom:30, color: 'red'}}
           />
         ))
         )}

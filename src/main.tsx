@@ -8,6 +8,7 @@ import { EventsSearchResultsPage } from './pages/events/EventsSearchResultsPage.
 import { Homepage } from './components/Homepage.tsx'
 import { ThemeProvider } from '@mui/material'
 import { theme } from './theme.ts'
+import ErrorPage from './components/Errorpage.tsx'
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([{
@@ -24,6 +25,9 @@ const router = createBrowserRouter([{
       {
         path: '/events-search-results',
         element: <EventsSearchResultsPage/>
+      },
+      {path:"*",
+        element: <ErrorPage/>
       }
     ]
 }])
