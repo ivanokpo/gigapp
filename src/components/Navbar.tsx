@@ -1,4 +1,4 @@
-import { AppBar, Box, Button, Container, MenuItem, Toolbar, Typography, useTheme } from '@mui/material';
+import { AppBar, Box, Button, Container, IconButton, MenuItem, Toolbar, Typography, useTheme } from '@mui/material';
 
 import { useNavigate } from 'react-router-dom';
 import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
@@ -42,8 +42,10 @@ export const Navbar = () => {
     }}>
       <Container maxWidth="xl" >
         <Toolbar disableGutters>
-          <TheaterComedyIcon/>
-          <MenuItem onClick={() => navigate("/")}>
+          
+          <TheaterComedyIcon sx={{pr: 1.5}}/>
+          
+          <MenuItem onClick={() => navigate("/")} sx={{borderRadius: '0.5rem'}}>
           <Typography
             variant="h6"
             noWrap
@@ -54,7 +56,8 @@ export const Navbar = () => {
               letterSpacing: '.3rem',
               color: `${theme.palette.secondary.main}`,
               textDecoration: 'none',
-              textAlign: 'center'
+              textAlign: 'center',
+              
             }}
           >
             GIGLI
