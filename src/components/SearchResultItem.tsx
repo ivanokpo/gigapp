@@ -1,4 +1,4 @@
-import { Box, Card, CardContent, CardMedia, IconButton, Typography, useTheme } from '@mui/material'
+import { alpha, Box, Card, CardContent, CardMedia, IconButton, Typography, useTheme } from '@mui/material'
 import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
 import InfoIcon from '@mui/icons-material/Info';
 type SearchResultItemPropsType = {
@@ -15,7 +15,7 @@ export const SearchResultItem = (props: SearchResultItemPropsType ) => {
 
   return (
    
-    <Card sx={{p: 1, display: 'flex', backgroundColor: `${theme.palette.primary.main}`}}>
+    <Card sx={{p: 1, display: 'flex', backgroundColor: `${alpha(theme.palette.primary.main, 0.5)}`}}>
         <CardMedia
         component="img"
         sx={{ width: "20%"}}

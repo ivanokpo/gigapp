@@ -22,7 +22,7 @@ const [searchParams] = useSearchParams();
   // keep local state in sync with URL changes (back/forward navigation)
   useEffect(() => {
     setQuery(queryParam);
-    //console.log('query', query);
+    
     
   }, [ queryParam]);
 
