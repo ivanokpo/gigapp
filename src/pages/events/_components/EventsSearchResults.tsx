@@ -15,12 +15,12 @@ export const EventsSearchResults = (props: EventsSearchResultsProps) => {
 
   return (
     <>
-    <Box sx={{padding: 5}}>
+    <Box sx={{paddingTop: 5}}>
         {data?._embedded?.events?.map(event => {
             return (
-            <Box padding={2}>
+            <Box paddingTop={2} key={event.id}>
                 <EventSearchResultItem data={event}/>
-                </Box>
+            </Box>
             )
         })}
         </Box>

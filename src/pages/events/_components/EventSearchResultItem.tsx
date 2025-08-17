@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import {  useState } from 'react'
 import { SearchResultItem } from '../../../components/SearchResultItem';
 import { EventItemModal } from './EventItemModal';
 import type { EmbeddedVenue } from '../../../types/EmbeddedVenue';
@@ -35,7 +35,6 @@ export const EventSearchResultItem = (props: EventSearchResultItemProps) => {
 
     const openModalSetter = () => {
         setOpenModal(!openModal);
-        console.log("open modal")
     }
     const imageUrl = `${event?.images?.filter(x => x.url.includes("ARTIST")) && 
                         event?.images?.filter(x => x.url.includes("ARTIST")).length > 0 ? 
@@ -45,9 +44,7 @@ export const EventSearchResultItem = (props: EventSearchResultItemProps) => {
    
                     
 
-useEffect(()=>{
-    console.log(event?.images?.filter(x => x.url.includes("ARTIST")) && event?.images?.filter(x => x.url.includes("ARTIST")).length > 0 ? event?.images?.filter(x => x.url.includes("ARTIST"))[0].url : "https://images.pexels.com/photos/2263436/pexels-photo-2263436.jpeg")
-},[event?.images])
+
   return (
     <>
     <SearchResultItem title={event.name} date={event.dates?.start.localDate ?? "TBC"} url={imageUrl} onClick={openModalSetter} ticketUrl={event.url}/>
