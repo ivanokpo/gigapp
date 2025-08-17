@@ -1,4 +1,4 @@
-import { Box,  Card, CardMedia, Divider, Fade, IconButton, Modal, Stack, Typography } from '@mui/material';
+import { Box,  Card, CardMedia, Divider, Fade, IconButton, Modal, Stack, Typography, useTheme } from '@mui/material';
 import React from 'react'
 import Backdrop from '@mui/material/Backdrop';
 import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
@@ -20,21 +20,24 @@ type ItemModalType = {
     type: string;
 }
 
-const style = {
+
+
+
+
+export const ItemModal = (props: ItemModalType) => {
+    const {isOpen, title, date, ticketUrl, imageUrl, onClose, venueDetails, attractionDetails, type} = props;
+const theme = useTheme();
+  const style = {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 400,
-  bgcolor: 'rgba(34, 34, 34, 1)',
+  bgcolor: `${theme.palette.primary.main}`,
   boxShadow: 24,
-  p: 4,
+  p: 2,
   
 };
-
-export const ItemModal = (props: ItemModalType) => {
-    const {isOpen, title, date, ticketUrl, imageUrl, onClose, venueDetails, attractionDetails, type} = props;
-  console.log(venueDetails, attractionDetails)
   
     return (
     <>
@@ -54,14 +57,14 @@ export const ItemModal = (props: ItemModalType) => {
       >
         <Fade in={isOpen}>
           <Box sx={style} >
-            <Card sx={{bgcolor: 'rgba(34, 34, 34, 1)' }}>
+            <Card sx={{bgcolor:  `${theme.palette.primary.main}` }}>
                 <CardMedia
                 component="img"
                 sx={{ width: "100%"}}
                 image={imageUrl}
                 alt="Modal Cover"
                 />
-                <Box id="modal-content" sx={{p: 2, mt: 2, color: 'white', border: 'solid', borderRadius: 0.5, borderColor: 'rgba(125, 125, 125, 0.2)'}}>
+                <Box id="modal-content" sx={{p: 2, mt: 2, color: 'white', border: 'solid', borderRadius: 0.5, borderColor:  `${theme.palette.secondary.main}`}}>
                     <Box id="modal-details">
                         <Box id="modal-header" sx={{p:1}}>
                         <Typography id="modal-title" variant="h5" component="h2">
@@ -71,7 +74,7 @@ export const ItemModal = (props: ItemModalType) => {
                         {date}
                         </Typography>
                         </Box>
-                        <Divider variant='middle'sx={{bgcolor: 'grey', m: 2}}/>
+                        <Divider variant='middle'sx={{bgcolor:  `${theme.palette.secondary.main}`, m: 2}}/>
                         {type=='event' && <Box id='event-embedded-details' sx={{p: 0.5}}>
                             <Box id="venue-details" sx={{mt: 1}}>
                                 <Stack direction='row'>

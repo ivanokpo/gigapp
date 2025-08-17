@@ -1,8 +1,9 @@
-import { AppBar, Avatar, Box, Button, Container, IconButton, Menu, MenuItem, Toolbar, Tooltip, Typography } from '@mui/material';
+import { AppBar, Avatar, Box, Button, Container, IconButton, Menu, MenuItem, Toolbar, Tooltip, Typography, useTheme } from '@mui/material';
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 export const Navbar = () => {
-    const pages = ['Events', 'Artists', 'Venues'];
+    const pages = ['Events'];
     const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -10,19 +11,35 @@ export const Navbar = () => {
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
+    console.log("hey")
   };
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-    
-  };
+  
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+    const navigate = useNavigate();
+
+  const navigateToEvents = ()=>{
+    navigate("/events")
+  }
+
+  const handleCategorySelect = (page: string) => {
+    setAnchorElNav(null);
+
+    switch(page){
+      case pages[0]:
+        navigateToEvents()
+    }
+      
+    
+  };
+
+  const theme = useTheme();
 
   return (
     <AppBar position='sticky' 
@@ -31,7 +48,7 @@ export const Navbar = () => {
         top: 0,                // No gap from the top
         left: 0,
         width: "100%",         // Full width
-        backgroundColor: "#333",
+        backgroundColor:  `${theme.palette.primary.main}`,
         color: "#fff",
         padding: "1rem",
         display: "flex",
@@ -41,6 +58,7 @@ export const Navbar = () => {
     }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+          <MenuItem onClick={() => navigate("/")}>
           <Typography
             variant="h6"
             noWrap
@@ -58,6 +76,7 @@ export const Navbar = () => {
           >
             GIGLI
           </Typography>
+          </MenuItem>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -68,6 +87,7 @@ export const Navbar = () => {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
+              
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -82,11 +102,11 @@ export const Navbar = () => {
                 horizontal: 'left',
               }}
               open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
+              onClose={()=> {}}
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={()=>console.log("b")}>
                   <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
                 </MenuItem>
               ))}
@@ -114,7 +134,7 @@ export const Navbar = () => {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={() => handleCategorySelect(page)}              
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}

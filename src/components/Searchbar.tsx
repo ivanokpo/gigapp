@@ -35,7 +35,7 @@ export const Searchbar = (props: SearchbarProps) => {
         onChange={(e) => setSearchQuery(e.target.value)}
 
       />
-      <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
+      <IconButton type="button" sx={{ p: '10px' }} aria-label="search" onClick={() => onSearch()}>
         <SearchOutlined />
       </IconButton>
       
