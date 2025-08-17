@@ -9,11 +9,14 @@ export const EventsPage = () => {
     const navigate = useNavigate();
 
 
-  const searchEvents =()=>{
-   navigate(`/events-search-results`, {state: {searchQuery: searchQuery}});
+  // const searchEvents =()=>{
+  //  navigate(`/events-search-results`, {state: {searchQuery: searchQuery}});
 
+  // }
+
+  const searchEvents = () => {
+    navigate(`/events-search-results?query=${encodeURIComponent(searchQuery)}`, {state: {searchQuery: searchQuery}});
   }
-
 
   return (
     <Box sx={{display: 'flex',}}>
