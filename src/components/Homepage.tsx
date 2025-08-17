@@ -14,7 +14,6 @@ export const Homepage = () => {
         alignItems: "center",
         textAlign: "center",
         px: 2,
-        backgroundImage: "url('/background.jpg')", // optional background
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
