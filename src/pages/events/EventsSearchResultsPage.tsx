@@ -35,8 +35,7 @@ const showSkeleton = isFetching || isRefetching;
 
 
 const searchEvents = () => {
-  //console.log("hey", searchPageQuery)
-  //console.log(isPending, isRefetching, isFetching, isLoading, isSuccess)
+  
     navigate(`/events-search-results?query=${encodeURIComponent(searchPageQuery)}`);
     refetch();
   }
