@@ -14,10 +14,10 @@ type SearchbarProps = {
 
 export const Searchbar = (props: SearchbarProps) => {
     const {searchEntity, setSearchQuery, onSearch} = props;
-const [searchParams] = useSearchParams();
+    const [searchParams] = useSearchParams();
     const queryParam = searchParams.get("query") || "";
 
-  const [query, setQuery] = useState(queryParam);
+    const [query, setQuery] = useState(queryParam);
 
   // keep local state in sync with URL changes (back/forward navigation)
   useEffect(() => {
@@ -31,7 +31,7 @@ const [searchParams] = useSearchParams();
   },[query, setSearchQuery])
 
   return (
-     <Box sx={{ width: '100%', maxWidth: '100%' }}>
+     <Box sx={{  maxWidth: '100%' }}>
     
 
       <Paper
