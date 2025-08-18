@@ -1,29 +1,25 @@
-
-import type { EventType } from '../../../types/EventType'
+import type { EventObjectType, EventResponseType } from '@/types/event';
 import { Box } from '@mui/material';
-import { EventSearchResultItem } from './EventSearchResultItem';
+import { EventSearchResultItem } from '@/pages/events/_components/EventSearchResultItem';
 
 type EventsSearchResultsProps = {
-    data?: EventType;
-}
-
-
-
+  data?: EventResponseType;
+};
 
 export const EventsSearchResults = (props: EventsSearchResultsProps) => {
-    const {data} = props;
+  const { data } = props;
 
   return (
     <>
-    <Box sx={{paddingTop: 5}}>
-        {data?._embedded?.events?.map(event => {
-            return (
+      <Box sx={{ }}>
+        {data?._embedded?.events?.map((event: EventObjectType) => {
+          return (
             <Box paddingTop={2} key={event.id}>
-                <EventSearchResultItem data={event}/>
+              <EventSearchResultItem data={event} />
             </Box>
-            )
+          );
         })}
-        </Box>
+      </Box>
     </>
-  )
-}
+  );
+};

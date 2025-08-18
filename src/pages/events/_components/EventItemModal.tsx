@@ -1,31 +1,31 @@
-import { ItemModal } from '../../../components/ItemModal'
-import type { EventSearchResultItemType } from './EventSearchResultItem';
-import type { EmbeddedVenue } from '../../../types/EmbeddedVenue';
-import type { EmbeddedAttraction } from '../../../types/EmbeddedAttraction';
+import { ItemModal } from '@/components/ItemModal';
+import type { EmbeddedAttractionsObjectType, EmbeddedVenuesObjectType, EventObjectType } from '@/types/event';
 
 type EventItemModal = {
-isOpen: boolean
-event: EventSearchResultItemType;
-onClose: () => void;
-imageUrl: string;
-venues?: EmbeddedVenue[];
-attractions?: EmbeddedAttraction[];
-type: string
-}
+  isOpen: boolean;
+  event: EventObjectType;
+  onClose: () => void;
+  imageUrl: string;
+  venues?: EmbeddedVenuesObjectType[];
+  attractions?: EmbeddedAttractionsObjectType[];
+  type: string;
+};
 export const EventItemModal = (props: EventItemModal) => {
-
-  const {isOpen, event, onClose, imageUrl, venues, attractions} = props;
+  const { isOpen, event, onClose, imageUrl, venues, attractions } = props;
 
   return (
-    <ItemModal 
+    <ItemModal
       isOpen={isOpen}
       title={event.name}
-      date={event.dates?.start.localDate ?? "TBC"}
+      date={event.dates?.start.localDate ?? 'TBC'}
       onClose={onClose}
-      ticketUrl={event.url ?? "TBC"}
+      ticketUrl={event.url ?? undefined}
       imageUrl={imageUrl}
       venueDetails={venues}
-      attractionDetails={attractions} 
-      type={event.type}    />
-  )
-}
+      attractionDetails={attractions}
+      type={event.type}
+      key={event.id}
+      accessibilityDetails={event.accessibility}
+    />
+  );
+};
