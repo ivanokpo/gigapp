@@ -1,6 +1,6 @@
 # 🎶 Gigli
 
-Gigli is a gig discovery app that allows users to **search for events around the world** and **purchase tickets**.  
+Gigli is a gig discovery app that allows users to **search for events around the world** and **purchase tickets**. Developed using a hackathon-style approach, the app was rapidly prototyped with a focus on quick iteration, and hands-on feature implementation. 
 Built with **[Vite](https://vitejs.dev/)** and **[React](https://react.dev/)** for speed, scalability, and a smooth developer experience.  
 
 ---
