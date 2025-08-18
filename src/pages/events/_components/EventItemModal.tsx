@@ -19,7 +19,7 @@ export const EventItemModal = (props: EventItemModal) => {
       title={event.name}
       date={event.dates?.start.localDate ?? 'TBC'}
       onClose={onClose}
-      ticketUrl={event.url ?? 'TBC'}
+      ticketUrl={event.url ?? undefined}
       imageUrl={imageUrl}
       venueDetails={venues}
       attractionDetails={attractions}

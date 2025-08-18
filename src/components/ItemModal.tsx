@@ -1,4 +1,5 @@
 import {
+  Alert,
   Box,
   Card,
   CardMedia,
@@ -6,6 +7,7 @@ import {
   Fade,
   IconButton,
   Modal,
+  Snackbar,
   Stack,
   Typography,
   useTheme,
@@ -18,12 +20,21 @@ import AttractionsIcon from '@mui/icons-material/Attractions';
 import type { AccessibilityObject, EmbeddedAttractionsObjectType, EmbeddedVenuesObjectType } from '@/types/event';
 import AccessibleIcon from '@mui/icons-material/Accessible';
 import '@/main.css';
+import { useState } from 'react';
+
+const urlRedirectAlerts = {
+  
+  failedSearch: (
+  <Alert icon={<CloseIcon fontSize="inherit"/>} severity='error'>
+    Ticket URL invalid
+  </Alert>)
+}
 
 type ItemModalType = {
   isOpen: boolean;
   title: string;
   date: string;
-  ticketUrl: string;
+  ticketUrl: string | undefined;
   imageUrl: string;
   details?: string[];
   onClose: () => void;
@@ -47,6 +58,8 @@ export const ItemModal = (props: ItemModalType) => {
     accessibilityDetails
   } = props;
   const theme = useTheme();
+    const [showSnackbar, setShowSnackbar] = useState(false);
+  
   const style = {
     position: 'absolute',
     top: '50%',
@@ -162,7 +175,13 @@ export const ItemModal = (props: ItemModalType) => {
                   <IconButton
                     aria-label="buy"
                     sx={{ float: 'right' }}
-                    onClick={() => window.open(ticketUrl)}
+                    onClick={() => {
+                      if(ticketUrl == undefined){
+                        setShowSnackbar(true)
+                      } else {
+                        window.open(ticketUrl)
+                      }
+                    }}
                   >
                     <ConfirmationNumberIcon sx={{ color: 'lightgrey' }} />
                   </IconButton>
@@ -172,6 +191,14 @@ export const ItemModal = (props: ItemModalType) => {
           </Box>
         </Fade>
       </Modal>
+      <Snackbar 
+                    open={showSnackbar} 
+                    autoHideDuration={4000} 
+                    onClose={() => setShowSnackbar(false)} 
+                    anchorOrigin={{vertical: 'bottom', horizontal: 'center'}}
+                  >
+                   {urlRedirectAlerts.failedSearch} 
+                  </Snackbar>
     </>
   );
 };
