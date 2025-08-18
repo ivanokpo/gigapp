@@ -60,16 +60,7 @@ export const ItemModal = (props: ItemModalType) => {
   const theme = useTheme();
     const [showSnackbar, setShowSnackbar] = useState(false);
   
-  const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: `${theme.palette.primary.main}`,
-    boxShadow: 24,
-    p: 2,
-  };
+ 
 
   return (
     <>
@@ -88,7 +79,15 @@ export const ItemModal = (props: ItemModalType) => {
         
       >
         <Fade in={isOpen}>
-          <Box sx={style}>
+          <Box sx={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: 400,
+            bgcolor: `${theme.palette.primary.main}`,
+            boxShadow: 24,
+            p: 2}}>
             <Card sx={{ bgcolor: `${theme.palette.primary.main}` }}>
               <CardMedia
                 component="img"

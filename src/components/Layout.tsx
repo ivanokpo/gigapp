@@ -2,7 +2,6 @@
 import { Outlet } from 'react-router-dom';
 import { Navbar } from '@/components/Navbar';
 import { Box } from '@mui/material';
-import backgroundpic from '@/../public/images/backgroundpic.jpg';
 import '@/main.css';
 
 export const Layout = () => {
@@ -16,7 +15,7 @@ export const Layout = () => {
           padding: 0,
           width: '100vw',
           height: '100vh',
-          backgroundImage: `url(${backgroundpic})`,
+          backgroundImage: `url(images/backgroundpic.jpg)`,
         }}
       >
         <Navbar />
