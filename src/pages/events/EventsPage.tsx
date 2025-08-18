@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Searchbar } from '../../components/Searchbar';
+import { Searchbar } from '@/components/Searchbar';
 
 import { useNavigate } from 'react-router-dom';
 import { Box } from '@mui/material';
@@ -8,10 +8,7 @@ export const EventsPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
 
-  // const searchEvents =()=>{
-  //  navigate(`/events-search-results`, {state: {searchQuery: searchQuery}});
-
-  // }
+ 
 
   const searchEvents = () => {
     navigate(`/events-search-results?query=${encodeURIComponent(searchQuery)}`, {
@@ -22,14 +19,14 @@ export const EventsPage = () => {
   return (
     <Box
       sx={{
-        position: 'fixed', // stick to the viewport
+        position: 'fixed', 
         top: 0,
         left: 0,
-        width: '100vw', // full viewport width
-        height: '100vh', // full viewport height
+        width: '100vw', 
+        height: '100vh', 
         display: 'flex',
-        justifyContent: 'center', // horizontal centering
-        alignItems: 'center', // vertical centering
+        justifyContent: 'center', 
+        alignItems: 'center', 
         flexDirection: 'column',
         gap: 2,
         margin: 0,

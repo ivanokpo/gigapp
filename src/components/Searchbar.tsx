@@ -2,7 +2,7 @@ import { Alert,  Box, IconButton, InputBase, Paper, Snackbar } from '@mui/materi
 import React, { useEffect, useState } from 'react';
 import { SearchOutlined } from '@mui/icons-material';
 import { useSearchParams } from 'react-router-dom';
-import { searchSchema } from '../schemas/searchSchema';
+import { searchSchema } from '@/schemas/searchSchema';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 
@@ -31,7 +31,6 @@ export const Searchbar = (props: SearchbarProps) => {
   const [queryToSearch, setQueryToSearch] = useState(urlQueryParam);
   const [showSnackbar, setShowSnackbar] = useState(false);
   const [alert, setAlert] = useState(searchbarAlerts.failedSearch);
-  //const parsedSearchQuery = searchSchema.safeParse(queryToSearch);
 
 
   useEffect(() => {
@@ -50,20 +49,17 @@ export const Searchbar = (props: SearchbarProps) => {
         onSubmit={(e) => {
           
           if(!searchSchema.safeParse(queryToSearch).success){
-            console.log('query', queryToSearch)
-            console.log(searchSchema.safeParse(queryToSearch).error)
-            console.log('error')
+          
             e.preventDefault();
             setAlert(searchbarAlerts.failedSearch)
             setShowSnackbar(true);
           } else {
-            console.log('success')
+            
             setSearchQuery(queryToSearch);
           e.preventDefault();
           
           onSearch();
-          setAlert(searchbarAlerts.successfulSearch)
-          setShowSnackbar(true);
+          
           }
           
           

@@ -1,6 +1,6 @@
-import type { EventObjectType, EventResponseType } from '../../../types/event';
+import type { EventObjectType, EventResponseType } from '@/types/event';
 import { Box } from '@mui/material';
-import { EventSearchResultItem } from './EventSearchResultItem';
+import { EventSearchResultItem } from '@/pages/events/_components/EventSearchResultItem';
 
 type EventsSearchResultsProps = {
   data?: EventResponseType;

@@ -1,17 +1,16 @@
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { EventService } from '../../services/events';
-import { Searchbar } from '../../components/Searchbar';
+import { EventService } from '@/services/events';
+import { Searchbar } from '@/components/Searchbar';
 import { Box, Skeleton, Typography } from '@mui/material';
-import { EventsSearchResults } from './_components/EventsSearchResults';
+import { EventsSearchResults } from '@/pages/events/_components/EventsSearchResults';
 
 export type locationSearchStateType = {
   searchQuery: string;
 };
 export const EventsSearchResultsPage = () => {
   const location = useLocation();
-  //const searchState = location.state as locationSearchStateType;
   const navigate = useNavigate();
   const params = new URLSearchParams(location.search);
   const query = params.get('query') || '';

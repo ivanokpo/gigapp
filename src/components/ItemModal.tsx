@@ -15,8 +15,10 @@ import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
 import CloseIcon from '@mui/icons-material/Close';
 import FestivalIcon from '@mui/icons-material/Festival';
 import AttractionsIcon from '@mui/icons-material/Attractions';
-import type { AccessibilityObject, EmbeddedAttractionsObjectType, EmbeddedVenuesObjectType } from '../types/event';
+import type { AccessibilityObject, EmbeddedAttractionsObjectType, EmbeddedVenuesObjectType } from '@/types/event';
 import AccessibleIcon from '@mui/icons-material/Accessible';
+
+
 type ItemModalType = {
   isOpen: boolean;
   title: string;
@@ -70,6 +72,7 @@ export const ItemModal = (props: ItemModalType) => {
             timeout: 500,
           },
         }}
+        
       >
         <Fade in={isOpen}>
           <Box sx={style}>
@@ -106,11 +109,11 @@ export const ItemModal = (props: ItemModalType) => {
                   />
                   {type == 'event' && (
                     <Box id="event-embedded-details" sx={{ p: 0.5 }}>
-                      <Box id="venue-details" sx={{ mt: 1 }}>
+                      {venueDetails && <Box id="venue-details" sx={{ mt: 1 }}>
                         <Stack direction="row">
                           <FestivalIcon />
                           <Box sx={{ ml: 3 }}>
-                            {venueDetails &&
+                            {
                               venueDetails.map((venue) => (
                                 <Box key={venue.id}>
                                   <Typography variant="subtitle1">{venue.name}</Typography>
@@ -121,12 +124,12 @@ export const ItemModal = (props: ItemModalType) => {
                               ))}
                           </Box>
                         </Stack>
-                      </Box>
-                      <Box id="attractions-details" sx={{ mt: 2 }}>
+                      </Box>}
+                     { attractionDetails && <Box id="attractions-details" sx={{ mt: 2 }}>
                         <Stack direction="row">
                           <AttractionsIcon />
                           <Box sx={{ ml: 3 }}>
-                            {attractionDetails &&
+                            {
                               attractionDetails.map((attraction) => (
                                 <Box key={attraction.id}>
                                   <Typography variant="subtitle1">{attraction.name}</Typography>
@@ -134,8 +137,8 @@ export const ItemModal = (props: ItemModalType) => {
                               ))}
                           </Box>
                         </Stack>
-                      </Box>
-                      {accessibilityDetails?.info && <Box id="accessibility-details" sx={{ mt: 2 }}>
+                      </Box>}
+                      {accessibilityDetails?.info && <Box id="accessibility-details" sx={{ mt: 2 , maxHeight: '90px',overflowY: 'overlay'}}>
                         <Stack direction="row">
                           <AccessibleIcon />
                           <Box sx={{ ml: 3 }}>

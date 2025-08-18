@@ -17,14 +17,14 @@ export const theme = createTheme({
     MuiIconButton: {
       styleOverrides: {
         root: ({ theme }) => ({
-          // default styling
+          
           borderRadius: 8,
           textTransform: 'none',
 
-          // hover effect for all buttons
+          
           '&:hover': {
-            backgroundColor: `${theme.palette.secondary.main}`, // change to your color
-            //color: "#ffffff",            // optional text color change
+            backgroundColor: `${theme.palette.secondary.main}`, 
+            
           },
         }),
       },
@@ -32,14 +32,14 @@ export const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: ({ theme }) => ({
-          // default styling
+          
           borderRadius: 8,
           textTransform: 'none',
 
-          // hover effect for all buttons
+        
           '&:hover': {
-            backgroundColor: `${theme.palette.secondary.main}`, // change to your color
-            //color: "#ffffff",            // optional text color change
+            backgroundColor: `${theme.palette.secondary.main}`, 
+            
           },
         }),
       },

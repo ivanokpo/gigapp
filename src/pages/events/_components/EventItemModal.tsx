@@ -1,5 +1,5 @@
-import { ItemModal } from '../../../components/ItemModal';
-import type { EmbeddedAttractionsObjectType, EmbeddedVenuesObjectType, EventObjectType } from '../../../types/event';
+import { ItemModal } from '@/components/ItemModal';
+import type { EmbeddedAttractionsObjectType, EmbeddedVenuesObjectType, EventObjectType } from '@/types/event';
 
 type EventItemModal = {
   isOpen: boolean;
