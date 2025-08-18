@@ -1,9 +1,9 @@
 .app-background {
-  background-size: cover; /* scale to fill screen */
+  background-size: cover; 
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh; /* full screen height */
-  width: 100vw; /* full screen width */
+  height: 100vh; 
+  width: 100vw; 
 }
 
 .overlay {
@@ -12,26 +12,26 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.698); /* dark layer */
+  background-color: rgba(0, 0, 0, 0.698); 
 }
 
 .content {
-  position: relative; /* makes sure text stays above overlay */
+  position: relative; 
 
   padding: 2rem;
 }
 
 
 .scrollable {
-  height: 300px; /* or whatever height you want */
+  height: 300px; 
   overflow: auto;
-  scrollbar-width: thin; /* Firefox */
+  scrollbar-width: thin; 
   scrollbar-color: rgba(255, 0, 0, 0) transparent; 
 }
 .scrollable:hover {
-  height: 300px; /* or whatever height you want */
+  height: 300px; 
   overflow: auto;
-  scrollbar-width: thin; /* Firefox */
+  scrollbar-width: thin; 
   scrollbar-color: #c48450ff transparent; 
 }
 
