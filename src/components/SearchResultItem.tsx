@@ -5,21 +5,39 @@ import {
   CardContent,
   CardMedia,
   IconButton,
+  Snackbar,
   Typography,
   useTheme,
 } from '@mui/material';
 import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
 import InfoIcon from '@mui/icons-material/Info';
+
+
+import { Alert } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
+import { useState } from 'react';
+
+const urlRedirectAlerts = {
+  
+  failedSearch: (
+  <Alert icon={<CloseIcon fontSize="inherit"/>} severity='error'>
+    Ticket URL invalid
+  </Alert>)
+}
+
 type SearchResultItemPropsType = {
   title: string;
   date: string;
   url: string;
   onClick: () => void;
-  ticketUrl: string;
+  ticketUrl: string | undefined;
 };
 
 export const SearchResultItem = (props: SearchResultItemPropsType) => {
   const { title, date, url, onClick, ticketUrl } = props;
+  const [showSnackbar, setShowSnackbar] = useState(false);
+    
+  
   const theme = useTheme();
 
   return (
@@ -40,11 +58,25 @@ export const SearchResultItem = (props: SearchResultItemPropsType) => {
           <IconButton aria-label="details" onClick={() => onClick()}>
             <InfoIcon sx={{ color: 'lightgrey' }} />
           </IconButton>
-          <IconButton aria-label="buy" onClick={() => window.open(ticketUrl)}>
+          <IconButton aria-label="buy" onClick={() => {
+            if(ticketUrl == undefined){
+              setShowSnackbar(true)
+            } else {
+              window.open(ticketUrl)
+            }
+            }}>
             <ConfirmationNumberIcon sx={{ color: 'lightgrey' }} />
           </IconButton>
         </Box>
       </Box>
+      <Snackbar 
+              open={showSnackbar} 
+              autoHideDuration={4000} 
+              onClose={() => setShowSnackbar(false)} 
+              anchorOrigin={{vertical: 'bottom', horizontal: 'center'}}
+            >
+             {urlRedirectAlerts.failedSearch} 
+            </Snackbar>
     </Card>
   );
 };

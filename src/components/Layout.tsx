@@ -2,7 +2,7 @@
 import { Outlet } from 'react-router-dom';
 import { Navbar } from '@/components/Navbar';
 import { Box } from '@mui/material';
-import backgroundpic from '@/public/images/backgroundpic.jpg';
+import backgroundpic from '@/../public/images/backgroundpic.jpg';
 import '@/main.css';
 
 export const Layout = () => {
