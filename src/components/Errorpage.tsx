@@ -1,5 +1,5 @@
-import { Box, Typography, Button } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { Box, Typography, Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 export default function ErrorPage() {
   const navigate = useNavigate();
@@ -7,12 +7,12 @@ export default function ErrorPage() {
   return (
     <Box
       sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "100vh",
-        textAlign: "center",
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '100vh',
+        textAlign: 'center',
         px: 2,
       }}
     >
@@ -22,7 +22,7 @@ export default function ErrorPage() {
       <Typography variant="body1" gutterBottom>
         The page you’re looking for does not exist.
       </Typography>
-      <Button variant="contained" onClick={() => navigate("/")}>
+      <Button variant="contained" onClick={() => navigate('/')}>
         Go Home
       </Button>
     </Box>

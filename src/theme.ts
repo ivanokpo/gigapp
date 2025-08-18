@@ -1,29 +1,28 @@
-import { createTheme } from "@mui/material";
+import { createTheme } from '@mui/material';
 
 export const theme = createTheme({
-    
   palette: {
-    mode: "dark",
+    mode: 'dark',
     primary: {
-      main: "#171717ff",
+      main: '#171717ff',
     },
     secondary: {
-      main: "#c48450ff",
+      main: '#c48450ff',
     },
   },
   typography: {
-    fontFamily: "Roboto, sans-serif",
+    fontFamily: 'Roboto, sans-serif',
   },
-   components: {
+  components: {
     MuiIconButton: {
       styleOverrides: {
-        root: ({theme}) => ({
+        root: ({ theme }) => ({
           // default styling
           borderRadius: 8,
-          textTransform: "none",
+          textTransform: 'none',
 
           // hover effect for all buttons
-          "&:hover": {
+          '&:hover': {
             backgroundColor: `${theme.palette.secondary.main}`, // change to your color
             //color: "#ffffff",            // optional text color change
           },
@@ -32,13 +31,13 @@ export const theme = createTheme({
     },
     MuiButton: {
       styleOverrides: {
-        root: ({theme}) => ({
+        root: ({ theme }) => ({
           // default styling
           borderRadius: 8,
-          textTransform: "none",
+          textTransform: 'none',
 
           // hover effect for all buttons
-          "&:hover": {
+          '&:hover': {
             backgroundColor: `${theme.palette.secondary.main}`, // change to your color
             //color: "#ffffff",            // optional text color change
           },

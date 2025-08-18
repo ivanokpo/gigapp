@@ -1,9 +1,9 @@
 .app-background {
-  background-size: cover;   /* scale to fill screen */
+  background-size: cover; /* scale to fill screen */
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;            /* full screen height */
-  width: 100vw;             /* full screen width */
+  height: 100vh; /* full screen height */
+  width: 100vw; /* full screen width */
 }
 
 .overlay {
@@ -17,6 +17,6 @@
 
 .content {
   position: relative; /* makes sure text stays above overlay */
-  
+
   padding: 2rem;
 }
