@@ -14,7 +14,7 @@ Built with **[Vite](https://vitejs.dev/)** and **[React](https://react.dev/)** f
 - ⚡ Lightning-fast dev environment with **Vite**  
 - 🔄 Data fetching and caching with **TanStack Query**  
 - ✅ Input validation with **Zod**  
-- 🧭 Client-side navigation with **React Router v6**  
+- 🧭 Client-side navigation with **React Router v7**  
 
 ---
 
