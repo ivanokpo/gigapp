@@ -29,7 +29,7 @@ export const EventSearchResultItem = (props: EventSearchResultItemProps) => {
         date={event.dates?.start.localDate ?? 'TBC'}
         url={imageUrl}
         onClick={openModalSetter}
-        ticketUrl={event.url}
+        ticketUrl={event.url ?? undefined}
       />
       {event && (
         <EventItemModal

@@ -1,4 +1,4 @@
-import { AppBar, Box, Button, Container,  MenuItem, Toolbar, Typography, useTheme } from '@mui/material';
+import { AppBar, Box, Button,  MenuItem, Toolbar, Typography, useTheme } from '@mui/material';
 
 import { useNavigate } from 'react-router-dom';
 import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
@@ -40,7 +40,7 @@ export const Navbar = () => {
         alignItems: 'start',
         zIndex: 1,          
     }}>
-      <Container maxWidth="xl" >
+      <Box sx={{pl: 3}}>
         <Toolbar disableGutters>
           
           <TheaterComedyIcon sx={{pr: 1.5}}/>
@@ -77,7 +77,7 @@ export const Navbar = () => {
           
           
         </Toolbar>
-      </Container>
+      </Box>
     </AppBar>
   )
 }

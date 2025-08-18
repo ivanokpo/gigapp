@@ -17,7 +17,7 @@ import FestivalIcon from '@mui/icons-material/Festival';
 import AttractionsIcon from '@mui/icons-material/Attractions';
 import type { AccessibilityObject, EmbeddedAttractionsObjectType, EmbeddedVenuesObjectType } from '@/types/event';
 import AccessibleIcon from '@mui/icons-material/Accessible';
-
+import '@/main.css';
 
 type ItemModalType = {
   isOpen: boolean;
@@ -138,7 +138,7 @@ export const ItemModal = (props: ItemModalType) => {
                           </Box>
                         </Stack>
                       </Box>}
-                      {accessibilityDetails?.info && <Box id="accessibility-details" sx={{ mt: 2 , maxHeight: '90px',overflowY: 'overlay'}}>
+                      {accessibilityDetails?.info && <Box id="accessibility-details" sx={{ mt: 2 , maxHeight: '90px', }} className='scrollable'>
                         <Stack direction="row">
                           <AccessibleIcon />
                           <Box sx={{ ml: 3 }}>
