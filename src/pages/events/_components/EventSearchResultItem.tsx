@@ -3,6 +3,7 @@ import { SearchResultItem } from '../../../components/SearchResultItem';
 import { EventItemModal } from './EventItemModal';
 import type { EmbeddedVenue } from '../../../types/EmbeddedVenue';
 import type { EmbeddedAttraction } from '../../../types/EmbeddedAttraction';
+import type { EventObjectType } from '../../../types/EventType';
 
 export type EventSearchResultItemType = {
   id: string;
@@ -23,7 +24,7 @@ export type EventSearchResultItemType = {
 };
 
 type EventSearchResultItemProps = {
-  data: EventSearchResultItemType;
+  data: EventObjectType;
 };
 
 export const EventSearchResultItem = (props: EventSearchResultItemProps) => {

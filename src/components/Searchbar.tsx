@@ -1,7 +1,21 @@
-import { Box, IconButton, InputBase, Paper } from '@mui/material';
+import { Alert,  Box, IconButton, InputBase, Paper, Snackbar } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { SearchOutlined } from '@mui/icons-material';
 import { useSearchParams } from 'react-router-dom';
+import { searchSchema } from '../schemas/searchSchema';
+import CheckIcon from '@mui/icons-material/Check';
+import CloseIcon from '@mui/icons-material/Close';
+
+const searchbarAlerts = {
+  successfulSearch: (
+  <Alert icon={<CheckIcon fontSize="inherit"/>} severity='success'>
+    Searching for events
+  </Alert>),
+  failedSearch: (
+  <Alert icon={<CloseIcon fontSize="inherit"/>} severity='error'>
+    Search query is invalid
+  </Alert>)
+}
 
 type SearchbarProps = {
   searchEntity: string;
@@ -13,18 +27,20 @@ type SearchbarProps = {
 export const Searchbar = (props: SearchbarProps) => {
   const { searchEntity, setSearchQuery, onSearch } = props;
   const [searchParams] = useSearchParams();
-  const queryParam = searchParams.get('query') || '';
+  const urlQueryParam = searchParams.get('query') || '';
+  const [queryToSearch, setQueryToSearch] = useState(urlQueryParam);
+  const [showSnackbar, setShowSnackbar] = useState(false);
+  const [alert, setAlert] = useState(searchbarAlerts.failedSearch);
+  //const parsedSearchQuery = searchSchema.safeParse(queryToSearch);
 
-  const [query, setQuery] = useState(queryParam);
-
-  // keep local state in sync with URL changes (back/forward navigation)
-  useEffect(() => {
-    setQuery(queryParam);
-  }, [queryParam]);
 
   useEffect(() => {
-    setSearchQuery(query);
-  }, [query, setSearchQuery]);
+    setQueryToSearch(urlQueryParam);
+  }, [urlQueryParam]);
+
+  useEffect(() => {
+    setSearchQuery(queryToSearch);
+  }, [queryToSearch, setSearchQuery]);
 
   return (
     <Box sx={{ maxWidth: '100%' }}>
@@ -32,10 +48,25 @@ export const Searchbar = (props: SearchbarProps) => {
         component="form"
         sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}
         onSubmit={(e) => {
-          setSearchQuery(query);
+          
+          if(!searchSchema.safeParse(queryToSearch).success){
+            console.log('query', queryToSearch)
+            console.log(searchSchema.safeParse(queryToSearch).error)
+            console.log('error')
+            e.preventDefault();
+            setAlert(searchbarAlerts.failedSearch)
+            setShowSnackbar(true);
+          } else {
+            console.log('success')
+            setSearchQuery(queryToSearch);
           e.preventDefault();
-
+          
           onSearch();
+          setAlert(searchbarAlerts.successfulSearch)
+          setShowSnackbar(true);
+          }
+          
+          
         }}
       >
         <InputBase
@@ -43,14 +74,22 @@ export const Searchbar = (props: SearchbarProps) => {
           placeholder={`Search for ${searchEntity}`}
           inputProps={{ 'aria-label': 'search' }}
           onChange={(e) => {
-            setQuery(e.target.value);
+            setQueryToSearch(e.target.value);
           }}
-          value={query}
+          value={queryToSearch}
         />
         <IconButton type="button" sx={{ p: '10px' }} aria-label="search" onClick={() => onSearch()}>
           <SearchOutlined />
         </IconButton>
       </Paper>
+      <Snackbar 
+        open={showSnackbar} 
+        autoHideDuration={3000} 
+        onClose={() => setShowSnackbar(false)} 
+        anchorOrigin={{vertical: 'bottom', horizontal: 'center'}}
+      >
+       {alert} 
+      </Snackbar>
     </Box>
   );
 };

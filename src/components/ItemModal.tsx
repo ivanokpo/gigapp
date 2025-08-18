@@ -18,6 +18,7 @@ import type { EmbeddedVenue } from '../types/EmbeddedVenue';
 import type { EmbeddedAttraction } from '../types/EmbeddedAttraction';
 import FestivalIcon from '@mui/icons-material/Festival';
 import AttractionsIcon from '@mui/icons-material/Attractions';
+import type { EmbeddedAttractionsObjectType, EmbeddedVenuesObjectType } from '../types/EventType';
 type ItemModalType = {
   isOpen: boolean;
   title: string;
@@ -26,8 +27,8 @@ type ItemModalType = {
   imageUrl: string;
   details?: string[];
   onClose: () => void;
-  venueDetails?: EmbeddedVenue[];
-  attractionDetails?: EmbeddedAttraction[];
+  venueDetails?: EmbeddedVenuesObjectType[];
+  attractionDetails?: EmbeddedAttractionsObjectType[];
   type: string;
 };
 
@@ -111,12 +112,12 @@ export const ItemModal = (props: ItemModalType) => {
                           <Box sx={{ ml: 3 }}>
                             {venueDetails &&
                               venueDetails.map((venue) => (
-                                <>
+                                <Box key={venue.id}>
                                   <Typography variant="subtitle1">{venue.name}</Typography>
                                   <Typography variant="subtitle2">
                                     {venue.city?.name ?? ''}, {venue.country?.name ?? ''}
                                   </Typography>
-                                </>
+                                </Box>
                               ))}
                           </Box>
                         </Stack>
@@ -127,9 +128,9 @@ export const ItemModal = (props: ItemModalType) => {
                           <Box sx={{ ml: 3 }}>
                             {attractionDetails &&
                               attractionDetails.map((attraction) => (
-                                <>
+                                <Box key={attraction.id}>
                                   <Typography variant="subtitle1">{attraction.name}</Typography>
-                                </>
+                                </Box>
                               ))}
                           </Box>
                         </Stack>
