@@ -36,7 +36,7 @@ export const EventsSearchResultsPage = () => {
   return (
     <>
       <Box>
-        <Box sx={{ position: 'fixed', zIndex: 1 }}>
+        <Box sx={{ position: 'sticky', top: 0, zIndex: 1}}>
           <Searchbar
             searchEntity={'events'}
             setSearchQuery={setSearchPageQuery}
@@ -46,7 +46,7 @@ export const EventsSearchResultsPage = () => {
         </Box>
 
         {showSkeleton && (
-          <Box sx={{ pt: 6, height: '100vh', mr: '12%' }}>
+          <Box sx={{ pt: 6, height: '100vh',}}>
             {Array.from({ length: 5 }).map((_, index) => (
               <Skeleton
                 key={index}

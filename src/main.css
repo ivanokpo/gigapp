@@ -18,20 +18,21 @@
 .content {
   position: relative; 
 
-  padding: 2rem;
+  
+  scrollbar-color: #c48450ff transparent; 
 }
 
 
 .scrollable {
   height: 300px; 
-  overflow: auto;
-  scrollbar-width: thin; 
+  overflow-y: auto;
+  
   scrollbar-color: rgba(255, 0, 0, 0) transparent; 
 }
 .scrollable:hover {
   height: 300px; 
-  overflow: auto;
-  scrollbar-width: thin; 
+  overflow-y: auto;
+  
   scrollbar-color: #c48450ff transparent; 
 }
 

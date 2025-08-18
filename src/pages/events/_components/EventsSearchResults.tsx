@@ -11,7 +11,7 @@ export const EventsSearchResults = (props: EventsSearchResultsProps) => {
 
   return (
     <>
-      <Box sx={{ paddingTop: 5 }}>
+      <Box sx={{ }}>
         {data?._embedded?.events?.map((event: EventObjectType) => {
           return (
             <Box paddingTop={2} key={event.id}>
