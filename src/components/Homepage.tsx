@@ -1,5 +1,6 @@
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography, Button, alpha } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { theme } from "../theme";
 
 export const Homepage = () => {
   const navigate = useNavigate();
@@ -18,20 +19,20 @@ export const Homepage = () => {
         backgroundPosition: "center",
       }}
     >
-      <Typography variant="h2" gutterBottom sx={{ fontWeight: "bold" }}>
+      <Typography variant="h1" gutterBottom sx={{ fontWeight: "bold" }}>
         Gigli
       </Typography>
-      <Typography variant="h5" gutterBottom>
-        Find your next memory here
-      </Typography>
+     
       <Button
         variant="contained"
-        color="primary"
-        size="large"
-        sx={{ mt: 3 }}
+        
+        size='large'
+        sx={{ mt: 3, bgcolor: `${alpha(theme.palette.primary.main, 0.5)}`}}
         onClick={() => navigate("/events")}
       >
-        Search Events
+             <Typography variant="h5">
+        Find your next memory
+      </Typography>
       </Button>
     </Box>
   );
