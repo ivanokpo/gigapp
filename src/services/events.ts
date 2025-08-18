@@ -1,5 +1,5 @@
 import axios from 'axios';
-import type { EventType } from '../types/EventType';
+import type { EventType } from '../types/event';
 import { API_KEY, API_URL } from '../../config';
 
 const getEventsQuery = async (query: string) => {

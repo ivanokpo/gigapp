@@ -1,15 +1,12 @@
 import { ItemModal } from '../../../components/ItemModal';
-import type { EventSearchResultItemType } from './EventSearchResultItem';
-import type { EmbeddedVenue } from '../../../types/EmbeddedVenue';
-import type { EmbeddedAttraction } from '../../../types/EmbeddedAttraction';
-import type { EmbeddedAttractionsObjectType, EmbeddedVenueObjectType, EventObjectType } from '../../../types/EventType';
+import type { EmbeddedAttractionsObjectType, EmbeddedVenuesObjectType, EventObjectType } from '../../../types/event';
 
 type EventItemModal = {
   isOpen: boolean;
   event: EventObjectType;
   onClose: () => void;
   imageUrl: string;
-  venues?: EmbeddedVenueObjectType[];
+  venues?: EmbeddedVenuesObjectType[];
   attractions?: EmbeddedAttractionsObjectType[];
   type: string;
 };
@@ -28,6 +25,7 @@ export const EventItemModal = (props: EventItemModal) => {
       attractionDetails={attractions}
       type={event.type}
       key={event.id}
+      accessibilityDetails={event.accessibility}
     />
   );
 };

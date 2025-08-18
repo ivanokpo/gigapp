@@ -1,4 +1,4 @@
-import type { EventObjectType, EventResponseType, EventType } from '../../../types/EventType';
+import type { EventObjectType, EventResponseType } from '../../../types/event';
 import { Box } from '@mui/material';
 import { EventSearchResultItem } from './EventSearchResultItem';
 

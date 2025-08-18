@@ -10,15 +10,13 @@ import {
   Typography,
   useTheme,
 } from '@mui/material';
-import React from 'react';
 import Backdrop from '@mui/material/Backdrop';
 import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
 import CloseIcon from '@mui/icons-material/Close';
-import type { EmbeddedVenue } from '../types/EmbeddedVenue';
-import type { EmbeddedAttraction } from '../types/EmbeddedAttraction';
 import FestivalIcon from '@mui/icons-material/Festival';
 import AttractionsIcon from '@mui/icons-material/Attractions';
-import type { EmbeddedAttractionsObjectType, EmbeddedVenuesObjectType } from '../types/EventType';
+import type { AccessibilityObject, EmbeddedAttractionsObjectType, EmbeddedVenuesObjectType } from '../types/event';
+import AccessibleIcon from '@mui/icons-material/Accessible';
 type ItemModalType = {
   isOpen: boolean;
   title: string;
@@ -30,6 +28,7 @@ type ItemModalType = {
   venueDetails?: EmbeddedVenuesObjectType[];
   attractionDetails?: EmbeddedAttractionsObjectType[];
   type: string;
+  accessibilityDetails?: AccessibilityObject;
 };
 
 export const ItemModal = (props: ItemModalType) => {
@@ -43,6 +42,7 @@ export const ItemModal = (props: ItemModalType) => {
     venueDetails,
     attractionDetails,
     type,
+    accessibilityDetails
   } = props;
   const theme = useTheme();
   const style = {
@@ -135,6 +135,19 @@ export const ItemModal = (props: ItemModalType) => {
                           </Box>
                         </Stack>
                       </Box>
+                      {accessibilityDetails?.info && <Box id="accessibility-details" sx={{ mt: 2 }}>
+                        <Stack direction="row">
+                          <AccessibleIcon />
+                          <Box sx={{ ml: 3 }}>
+                            {
+                              
+                                <Box>
+                                  <Typography variant='caption'><i>{accessibilityDetails.info }</i></Typography>
+                                </Box>
+                             }
+                          </Box>
+                        </Stack>
+                      </Box>}
                     </Box>
                   )}
                   <Box></Box>

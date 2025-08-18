@@ -1,27 +1,25 @@
 import { useState } from 'react';
 import { SearchResultItem } from '../../../components/SearchResultItem';
 import { EventItemModal } from './EventItemModal';
-import type { EmbeddedVenue } from '../../../types/EmbeddedVenue';
-import type { EmbeddedAttraction } from '../../../types/EmbeddedAttraction';
-import type { EventObjectType } from '../../../types/EventType';
+import type { EventObjectType } from '../../../types/event';
 
-export type EventSearchResultItemType = {
-  id: string;
-  name: string;
-  dates?: { start: { localDate: string } };
-  url: string;
-  type: string;
-  images?: {
-    height: number;
-    width: number;
-    ratio: string;
-    url: string;
-  }[];
-  _embedded?: {
-    venues?: EmbeddedVenue[];
-    attractions?: EmbeddedAttraction[];
-  };
-};
+// export type EventSearchResultItemType = {
+//   id: string;
+//   name: string;
+//   dates?: { start: { localDate: string } };
+//   url: string;
+//   type: string;
+//   images?: {
+//     height: number;
+//     width: number;
+//     ratio: string;
+//     url: string;
+//   }[];
+//   _embedded?: {
+//     venues?: EmbeddedVenue[];
+//     attractions?: EmbeddedAttraction[];
+//   };
+// };
 
 type EventSearchResultItemProps = {
   data: EventObjectType;

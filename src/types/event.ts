@@ -1,44 +1,4 @@
-// export type EventType = {
-//   page: {
-//     number: number;
-//     size: number;
-//     totalElements: number;
-//     totalPages: number;
-//   };
-//   _embedded?: {
-//     events?: {
-//       id: string;
-//       name: string;
-//       dates?: { start: { localDate: string } };
-//       url: string;
-//       type: string;
-//       images?: {
-//         height: number;
-//         width: number;
-//         ratio: string;
-//         url: string;
-//       }[];
-//       _embedded?: {
-//         venues?: {
-//           id: string;
-//           name: string;
-//           country?: { name: string };
-//           city?: { name: string };
-//           url?: string;
-//           type: string;
-//         }[];
-//         attractions?: {
-//           id: string;
-//           name: string;
-//           country?: { name: string };
-//           city?: { name: string };
-//           url?: string;
-//           type: string;
-//         }[];
-//       };
-//     }[];
-//   };
-// };
+
 
 import z from "zod";
 export const embeddedVenuesObjectType = z.object({
@@ -59,6 +19,11 @@ export const embeddedAttractionsObjectType = z.object({
    type: z.string().optional().nullable()
 });
 export type EmbeddedAttractionsObjectType = z.infer<typeof embeddedAttractionsObjectType>;
+export const accessibilityObject = z.object({
+                    info: z.string().optional().nullable(),
+                    ticketLimit: z.number().optional().nullable()
+                }).optional().nullable();
+export type AccessibilityObject = z.infer<typeof accessibilityObject>;
 export const eventObjectType = z.object({
   id: z.string(),
       name: z.string(),
@@ -76,7 +41,8 @@ export const eventObjectType = z.object({
       _embedded: z.object({
         venues: z.array(embeddedVenuesObjectType),
         attractions: z.array(embeddedAttractionsObjectType)
-      })
+      }),
+      accessibility: accessibilityObject
     }
     );
 export type EventObjectType = z.infer<typeof eventObjectType>;
