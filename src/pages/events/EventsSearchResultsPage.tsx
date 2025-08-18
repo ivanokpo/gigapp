@@ -1,5 +1,5 @@
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { EventService } from '@/services/events';
 import { Searchbar } from '@/components/Searchbar';
